@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aether — Aromas & Bienestar</title>
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+
+  <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+        <div class="container topbar__inner">
+            <!-- LOGO como imagen -->
+            <a class="brand" href="index.html" aria-label="Aether - Inicio"> <!-- logo mas grande y el coso de elegi tu prefe matchee lo anterior-->
+            <img
+                class="logo-img"
+                src="assets/logo-aether.png"
+                alt="Aether — Aromas & Bienestar"
+                decoding="async"
+            />
+            </a>
+
+
+            <!-- NAV -->
+            <nav class="nav" aria-label="Navegación principal">
+            <ul class="nav__list">
+                <li><a class="nav__link" href="index.html" aria-current="page">Inicio</a></li>
+                <li><a class="nav__link" href="productos.html">Productos</a></li>
+                <li><a class="nav__link" href="sobre.html">Sobre Nosotros</a></li>
+                <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+            </ul>
+            </nav>
+
+            
+        </div>
+    </header>
+
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1 class="display">
+            Aether, aromas<br>que elevan tus<br>sentidos
+          </h1>
+          <p class="muted">
+            En Aether creemos en el poder de los aromas para transformar espacios y emociones.
+            Nuestros productos artesanales están pensados para relajarte, conectarte y crear
+            momentos únicos.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="productos.html">Productos</a>
+          </div>
+        </div>
+
+        <figure class="hero__media">
+          <img
+            src="https://conesencias.com/wp-content/uploads/2024/08/2148720016.webp"
+            alt="Velas artesanales encendidas sobre base de mimbre"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <!-- LISTADO DESTACADOS -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Lo más popular</p>
+        <h2 class="h2">Nuestras Velas Exclusivas</h2>
+
+        <div class="cards">
+          <!-- CARD 1 -->
+          <article class="card">
+            <figure class="card__media">
+              <img
+                src="assets/vela-cacao.png"
+                alt="Vela artesanal sabor cacao con crema batida decorativa"
+              />
+            </figure>
+            <div class="card__body">
+              <h3 class="card__title">Vela Cacao Divino</h3>
+              <p class="card__subtitle">Aroma a chocolate intenso.</p>
+            </div>
+            <div class="card__footer">
+              <span class="price">$12.000</span>
+              <a class="btn btn--sm" href="productos.html">Comprar</a>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="card">
+            <figure class="card__media">
+              <img
+                src="assets/vela-citrus.png"
+                alt="Vela cítrica junto a limones y naranjas"
+              />
+            </figure>
+            <div class="card__body">
+              <h3 class="card__title">Vela Brisa de Citrus</h3>
+              <p class="card__subtitle">Naranja, pomelo y limón.</p>
+            </div>
+            <div class="card__footer">
+              <span class="price">$15.000</span>
+              <a class="btn btn--sm" href="productos.html">Comprar</a>
+            </div>
+          </article>
+
+          <!-- CARD 3 (placeholder / otra vela) -->
+          <article class="card">
+            <figure class="card__media card__media--placeholder">
+              <img
+                src="assets/vela-vainilla.png"
+                alt="Vela minimalista en frasco gris"
+              />
+            </figure>
+            <div class="card__body">
+              <h3 class="card__title">Nébula Vainilla</h3>
+              <p class="card__subtitle">Vainilla suave y notas de caramelo.</p>
+            </div>
+            <div class="card__footer">
+              <span class="price">$12.000</span>
+              <a class="btn btn--sm" href="productos.html">Comprar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================
+     ELEGÍ TU PREFERIDO (categorías)
+     ====================================== -->
+    <section class="categories">
+        <h3>Elegí tu preferido</h3>
+        <div class="category-grid">
+            <a href="productos.html#velas" class="category-item">
+            <img src="assets/icon-vela.png" alt="Velas" />
+            <p>Velas</p>
+            </a>
+            <a href="productos.html#jabones" class="category-item">
+            <img src="assets/icon-jabon.png" alt="Jabones" />
+            <p>Jabones</p>
+            </a>
+            <a href="productos.html#aceites" class="category-item">
+            <img src="assets/icon-aceite.png" alt="Aceites y Esencias" />
+            <p>Aceites & Esencias</p>
+            </a>
+            <a href="productos.html#difusores" class="category-item">
+            <img src="assets/icon-difusor.png" alt="Difusores" />
+            <p>Difusores</p>
+            </a>
+            <a href="productos.html#inciensos" class="category-item">
+            <img src="assets/icon-incienso.png" alt="Inciensos" />
+            <p>Inciensos</p>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ======================================
+        CTA SOBRE NOSOTROS
+        ====================================== -->
+    <section class="about-call">
+        <h3>Descubrí nuestra esencia</h3>
+        <p>
+            Aether nació para elevar tus sentidos con aromas que conectan lo natural con lo espiritual.  
+            Conocé nuestra historia, el proceso artesanal y los valores que hay detrás de cada producto.
+        </p>
+        <a href="sobre.html" class="btn-yellow">Conocé Más Sobre Nosotros</a>
+    </section>
+
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 Aether — Aromas & Bienestar</p>
+      <nav aria-label="Enlaces legales y redes">
+        <ul class="footer__links">
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Botón subir -->
+  <a href="#top" class="btn back-to-top" aria-label="Volver arriba">↑</a>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aether — Contacto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+  <header class="topbar">
+    <div class="container topbar__inner">
+            <!-- LOGO como imagen -->
+            <a class="brand" href="index.html" aria-label="Aether - Inicio">
+            <img
+                class="logo-img"
+                src="assets/logo-aether.png"
+                alt="Aether — Aromas & Bienestar"
+                decoding="async"
+            />
+            </a>
+
+            <!-- NAV -->
+            <nav class="nav" aria-label="Navegación principal">
+            <ul class="nav__list">
+                <li><a class="nav__link" href="index.html">Inicio</a></li>
+                <li><a class="nav__link" href="productos.html">Productos</a></li>
+                <li><a class="nav__link" href="sobre.html">Sobre Nosotros</a></li>
+                <li><a class="nav__link" href="contacto.html" aria-current="page">Contacto</a></li>
+            </ul>
+            </nav>
+
+            
+        </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="page-title">Contacto</h1>
+      <p class="muted-center">Estamos en Galerías Aurora, Local 23. Escribinos por consultas o pedidos y te respondemos a la brevedad.</p>
+
+        <!-- Formulario + datos -->
+      <section class="hero__grid" >
+        <form class="contact-form"
+                action="mailto:micsuarez@uade.edu.ar"
+                method="post"
+                enctype="text/plain"
+                autocomplete="on">
+            <fieldset class="form-grid">
+                <legend class="sr-only">Formulario de contacto</legend>
+
+                <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="Email" type="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="field">
+                <label for="asunto">Asunto</label>
+                <input id="asunto" name="Asunto" type="text" placeholder="Consulta / pedido" required>
+                </div>
+
+                <div class="field field--full">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="Mensaje" rows="6" placeholder="Escribí tu mensaje..." required></textarea>
+                </div>
+
+                <div class="actions field--full">
+                <button type="submit" class="btn btn--full">Enviar</button>
+                <button type="reset" class="btn outline">Limpiar</button>
+                </div>
+            </fieldset>
+        </form>
+
+
+        <div>
+          <figure class="hero__media">
+            <img src="assets/aether-local.png" alt="Interior de shopping con locales comerciales" />
+          </figure>
+
+          <div class="list">
+            <p><strong>Dirección:</strong> Galerías Aurora — Av. San Martín 1381, Local 23</p>
+            <p><strong>Tel:</strong> (011) 5555-1234</p>
+            <p><strong>Email:</strong> contacto@aether-shop.com</p>
+            <p><strong>Instagram:</strong> @aether_shop</p>
+            <p><strong>Facebook:</strong> Aether Shop</p>
+            <p><strong>Pinterest:</strong> @aether_shop</p>
+          </div>
+
+          
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 Aether — Aromas & Bienestar</p>
+      <ul class="footer__links">
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <a href="#top" class="btn back-to-top" aria-label="Volver arriba">↑</a>
+</body>
+</html>
