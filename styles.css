@@ -49,15 +49,13 @@ img{ max-width:100%; height:auto; display:block; }
 .muted{ color:var(--muted); max-width:60ch; }
 .muted-center{ color:var(--muted); text-align:center; max-width:60ch; margin-inline:auto; }
 
-/* =========================
-   TOPBAR / NAV
-   ========================= */
+/* TOPBAR / NAV */
 .topbar__inner { 
   display:flex; align-items:center; justify-content:space-between;
   gap:12px;
   padding-block:.65rem;
-  flex-wrap: wrap;          /* <-- permite que el nav baje a otra línea */
-  min-width: 0;             /* <-- fix overflow en Safari */
+  flex-wrap: wrap;          
+  min-width: 0;             
 }
 .topbar { 
   position: sticky; top:0; z-index: 1000;
@@ -66,10 +64,10 @@ img{ max-width:100%; height:auto; display:block; }
   backdrop-filter: saturate(140%) blur(4px);
 }
 .brand { display:flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--text); }
-.logo-img { height: 64px; width:auto; filter: drop-shadow(0 1px 2px rgba(0,0,0,.08)); }
+.logo-img { height: 80px; width:auto; filter: drop-shadow(0 1px 2px rgba(0,0,0,.08)); }
 
 @media (max-width: 520px){
-  .logo-img{ height: 50px; }  /* un poco más chico en móvil */
+  .logo-img{ height: 60px; }  
 }
 
 .brand__name{
@@ -78,18 +76,18 @@ img{ max-width:100%; height:auto; display:block; }
   font-size:1.15rem;
 }
 
-.nav { min-width: 0; }      /* <-- importante para que pueda encogerse dentro del flex */
+.nav { min-width: 0; }      
 .nav__list{
   list-style:none; margin:0; padding:0;
   display:flex; align-items:center; 
   gap: 12px;
-  flex-wrap: wrap;          /* si no entra, los links pasan a otra fila */
+  flex-wrap: wrap;          
   justify-content: flex-end;
 }
 .nav__link{
   text-decoration:none; color:var(--text);
   padding:.5rem .7rem; border-radius:10px; font-weight:600;
-  white-space: nowrap;      /* evita quiebres feos dentro del link */
+  white-space: nowrap;     
 }
 .nav__link:hover,
 .nav__link[aria-current="page"]{ background:#fff; }
