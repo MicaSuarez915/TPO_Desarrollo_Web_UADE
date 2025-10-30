@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // PROMO 3: 10% OFF > $100.000
   function calcularDescuentoPromo3(subtotal) {
     let descuentoTotal = 0;
-    if (subtotal > 100000) {
+    if (subtotal >= 100000) {
       descuentoTotal = subtotal * 0.10;
     }
     return descuentoTotal;
@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
       carritoPromo3.forEach(item => { totalSinDescuento += item.producto.precio * item.cantidad; });
       const descuentoTotal = calcularDescuentoPromo3(totalSinDescuento); 
       const totalFinal = totalSinDescuento - descuentoTotal;
-      mostrarResultado(resultadoElPromo3, totalSinDescuento, descuentoTotal, totalFinal, "10% OFF (Compra > $100k)");
+      mostrarResultado(resultadoElPromo3, totalSinDescuento, descuentoTotal, totalFinal, "10% OFF (Compra >= $100k)");
     });
   }
   if (btnLimpiarPromo3) {
