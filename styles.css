@@ -345,16 +345,13 @@ img{ max-width:100%; height:auto; display:block; }
       /* 2. Ocultamos la barra de scroll (estética) */
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none;  /* IE y Edge */
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1.5rem; /* Espacio para que la sombra no se corte */
     }
     .category .cards::-webkit-scrollbar {
       display: none; /* Chrome, Safari y Opera */
     }
 
-    .category .cards {
-      /* 3. Agregamos 'scroll snapping' para un efecto profesional */
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1.5rem; /* Espacio para que la sombra no se corte */
-    }
 
     .category .cards .card {
       /* 4. Damos un ancho fijo a las tarjetas */
