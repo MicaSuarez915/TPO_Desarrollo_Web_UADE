@@ -17,9 +17,9 @@ El estilo es minimalista y armónico, con bordes redondeados, sombras suaves y u
 - Contacto: Información de ubicación y formulario para consultas.
 
 💻 Tecnologías utilizadas
-- HTML5 — Estructura semántica del sitio
-- CSS3 — Flexbox, Grid y Media Queries para diseño responsive
-- JavaScript (Vanilla) — Interactividad:
+- HTML5: Estructura semántica del sitio
+- CSS3: Flexbox, Grid y Media Queries para diseño responsive
+- JavaScript (Vanilla) - Interactividad:
 - Menú hamburguesa responsive
 - Carruseles de productos
 - Cálculo de promociones dinámico
