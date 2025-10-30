@@ -1,6 +1,6 @@
 # TPO_Desarrollo_Web_UADE
 
-🌿 Aether — Aromas & Bienestar
+🌿 Aether - Aromas & Bienestar
 
 Sitio web informativo para el local Aether, un espacio dentro de una galería dedicado a la venta de velas aromáticas, jabones artesanales, aceites, difusores e inciensos.
 El proyecto fue desarrollado en HTML5, CSS3 y JavaScript, con diseño responsivo y estética basada en lo natural, lo artesanal y la serenidad.
