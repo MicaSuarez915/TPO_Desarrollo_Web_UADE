@@ -621,3 +621,53 @@ textarea{ resize: vertical; min-height: 160px; }
   background: #f9c5c5;
   color: #7f1d1d;
 }
+
+
+/* =========================
+   ESTILOS MODULO TOTAL
+   ========================= */
+
+/* Estilo para la caja principal */
+.promo-box--total {
+  /* Ocupa las 2 columnas en pantallas grandes */
+  grid-column: 1 / -1; 
+  border-color: var(--brand);
+  border-width: 2px;
+}
+
+/* Botón de calcular total más grande */
+.btn--total {
+  padding: .9rem 1.25rem;
+  font-size: 1.05rem;
+}
+
+/* Estilos para el checkbox de Mercado Pago */
+.field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg);
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.field-checkbox input[type="checkbox"] {
+  /* Hacemos el check más grande y fácil de clickear */
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--text); /* Color del check */
+}
+
+.field-checkbox label {
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.field-checkbox label strong {
+  color: var(--text);
+  font-weight: 700;
+  display: block; /* Para que baje de línea */
+}
