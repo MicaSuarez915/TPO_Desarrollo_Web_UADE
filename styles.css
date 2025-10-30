@@ -10,6 +10,8 @@
   --card: #ffffff;        /* blanco tarjetas */
   --radius: 16px;
   --shadow: 0 8px 28px rgba(0,0,0,.08);
+  --dark: rgba(0,0,0,.06);
+  --border: #efe8de;
 }
 
 *{ box-sizing:border-box; }
@@ -60,15 +62,12 @@ img{ max-width:100%; height:auto; display:block; }
 .topbar { 
   position: sticky; top:0; z-index: 1000;
   background: var(--surface);
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid var(--dark);
   backdrop-filter: saturate(140%) blur(4px);
 }
 .brand { display:flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--text); }
-.logo-img { height: 80px; width:auto; filter: drop-shadow(0 1px 2px rgba(0,0,0,.08)); }
+.logo-img { height: 80px; width:auto; filter: drop-shadow(0 1px 2px var(--shadow)); }
 
-@media (max-width: 520px){
-  .logo-img{ height: 60px; }  
-}
 
 .brand__name{
   font-family:"Playfair Display", serif;
@@ -90,7 +89,7 @@ img{ max-width:100%; height:auto; display:block; }
   white-space: nowrap;     
 }
 .nav__link:hover,
-.nav__link[aria-current="page"]{ background:#fff; }
+.nav__link[aria-current="page"]{ background:var(--card); }
 
 /* ====== Tablet/Mobile ====== */
 @media (max-width: 900px){
@@ -109,19 +108,21 @@ img{ max-width:100%; height:auto; display:block; }
     padding-top: 6px;
   }
   .nav__link{
-    background:#fff;
-    border:1px solid #efe8de;
+    background:var(--card);
+    border:1px solid var(--border);
     border-radius:12px;
     padding:.6rem .9rem;
+    display: block; 
+    text-align: center; 
   }
-  .logo-img{ height: 46px; }
+  .logo-img{ height: 70px; }
 }
 
 
 
 /* iconitos */
 .actions{ display:flex; gap:10px; }
-.icon{ background:#fff; border-radius:999px; padding:.35rem .55rem; box-shadow:var(--shadow); }
+.icon{ background:var(--card); border-radius:999px; padding:.35rem .55rem; box-shadow:var(--shadow); }
 
 /* =========================
    HERO
@@ -139,7 +140,7 @@ img{ max-width:100%; height:auto; display:block; }
 
 .hero__media{
   border-radius: 18px; overflow:hidden; box-shadow: var(--shadow);
-  background: #eee; aspect-ratio: 4/3;
+  background: var(--card); aspect-ratio: 4/3;
 }
 .hero__media img{ width:100%; height:100%; object-fit: cover; }
 
@@ -185,9 +186,9 @@ img{ max-width:100%; height:auto; display:block; }
 }
 .card:hover{ transform: translateY(-3px); border-color: rgba(0,0,0,.06); }
 
-.card__media{ aspect-ratio: 4/3; overflow:hidden; background:#f2f2f2; }
+.card__media{ aspect-ratio: 4/3; overflow:hidden; background:var(--card); }
 .card__media img{ width:100%; height:100%; object-fit:cover; }
-.card__media--placeholder{ background:#e7ebee; }
+.card__media--placeholder{ background:var(--muted); }
 
 .card__body{ padding: 14px 16px 0 16px; }
 .card__title{ margin: 0 0 .25rem 0; font-family:"Playfair Display", serif; font-size:1.05rem; }
@@ -207,7 +208,7 @@ img{ max-width:100%; height:auto; display:block; }
    ========================= */
 .footer{
   background: var(--surface);
-  border-top: 1px solid rgba(0,0,0,.06);
+  border-top: 1px solid var(--dark);
   margin-top: 28px;
 }
 .footer__inner{
@@ -227,26 +228,19 @@ img{ max-width:100%; height:auto; display:block; }
 
 .categories {
   text-align: center;
-  background: #fff;
+  background: var(--card);
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,.05);
   padding: 30px 20px;
   margin: 50px auto;
-  max-width: 900px;
 }
 
-.categories h3 {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
-  margin-bottom: 30px;
-  color: #5b3921;
-}
 
 .category-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px; /* 🔸 aumenta o disminuye este valor según el espacio deseado */
+  gap: 60px; 
 }
 
 .category-item {
@@ -281,11 +275,33 @@ img{ max-width:100%; height:auto; display:block; }
 }
 
 
+@media (max-width: 900px) { 
+  .categories {
+    max-width: 100%; 
+    border-radius: 0; 
+    padding-left: 15px; 
+    padding-right: 15px;
+    margin-left: 0; 
+    margin-right: 0;
+  }
+}
+
+
+
+@media (max-width: 640px) {
+  .category-grid {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+ }
+}
+
+
 /* =========================
    CTA SOBRE NOSOTROS
    ========================= */
 .about-call {
-  background-color: #fdf6ee;
+  background-color: var(--card);
   text-align: center;
   padding: 60px 20px;
   border-radius: 12px;
@@ -293,12 +309,6 @@ img{ max-width:100%; height:auto; display:block; }
   max-width: 900px;
 }
 
-.about-call h3 {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.8rem;
-  color: #5b3921;
-  margin-bottom: 16px;
-}
 
 .about-call p {
   max-width: 700px;
@@ -308,7 +318,7 @@ img{ max-width:100%; height:auto; display:block; }
 }
 
 .btn-yellow {
-  background-color: #ffe48f;
+  background-color: var(--brand);
   color: #3f2a1a;
   font-weight: 700;
   padding: 12px 26px;
@@ -319,7 +329,7 @@ img{ max-width:100%; height:auto; display:block; }
 }
 
 .btn-yellow:hover {
-  background-color: #ffda6a;
+  background-color: var(--brand-hover);
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(255, 218, 106, 0.5);
 }
@@ -336,7 +346,7 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* Formulario de contacto */
 .contact-form{
-  background:#fff;
+  background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: clamp(16px, 2.5vw, 28px);
@@ -362,7 +372,7 @@ input, textarea{
   width: 100%;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  background:#fff;
+  background:var(--card);
   padding: 12px 14px;
   font: inherit;
   color: var(--text);
@@ -375,7 +385,7 @@ input:focus, textarea:focus{
   outline: 0;
   border-color: transparent;
   box-shadow: 0 0 0 2px var(--accent);
-  background:#fff;
+  background:var(--card);
 }
 
 textarea{ resize: vertical; min-height: 160px; }
@@ -395,3 +405,219 @@ textarea{ resize: vertical; min-height: 160px; }
 }
 
 
+/* =========================
+   ESTILOS PÁGINA PROMOCIONES
+   ========================= */
+
+/* Grilla para las calculadoras */
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+/* La caja de cada calculadora */
+.promo-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+
+.promo-box:hover {
+  border-color: var(--brand);
+}
+
+/* El título dentro de la caja */
+.promo-box .h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem); /* Un poco más chico que el .h2 normal */
+  margin-top: 0;
+}
+
+/* Espacio para los botones */
+.promo-actions {
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+/* Caja de resultados */
+.promo-results {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 1rem;
+  min-height: 50px; /* Para que no "salte" la altura */
+}
+
+.promo-results p {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.promo-results strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.promo-results hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 10px 0;
+}
+
+/* Estilos para los totales */
+.promo-results .total-final {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.promo-results .total-final strong {
+  font-weight: 700; /* Hereda el peso */
+}
+
+/* Colores especiales */
+.promo-results .ahorro strong {
+  color: #059669; /* Un verde oscuro */
+}
+
+.promo-results .error {
+  color: #DC2626; /* Un rojo oscuro */
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Re-utilizamos los estilos de formulario que ya tenías */
+.promo-box .form-grid {
+  margin-top: 1rem;
+}
+
+/* =========================
+   ESTILOS PROMO DINÁMICA
+   ========================= */
+
+/* Botón secundario (para 'Limpiar') */
+.btn--secondary {
+  --btn-bg: #eef0ec; /* Color de fondo suave */
+  --btn-fg: var(--muted);
+  font-weight: 600;
+}
+.btn--secondary:hover {
+  background: #e5e7eb; /* Un gris un poco más oscuro */
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+/* Lista del "carrito" de la promo */
+.promo-cart-list {
+  margin-top: 1rem;
+  padding: 10px 14px;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.promo-cart-list h4 {
+  margin: 0 0 8px 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+}
+.promo-cart-list ul {
+  list-style: disc;
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+.promo-cart-list li {
+  color: var(--muted);
+  padding: 4px 0;
+  font-size: 0.95rem;
+}
+.promo-cart-list li strong {
+  color: var(--text);
+}
+
+/* =========================
+   ESTILOS SELECT (DROPDOWN)
+   ========================= */
+
+.field select {
+  /* 1. Oculta la flecha por defecto del navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* 2. Aplica los mismos estilos de tus inputs */
+  width: 100%;
+  border: 1px solid var(--border); /* Tu variable de borde */
+  border-radius: 12px;
+  background: var(--card); /* Fondo blanco */
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  transition: border-color .2s ease, box-shadow .2s ease;
+
+  /* 3. Añade la flecha personalizada (SVG) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath fill='%237C6F65' d='m0 0 5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center; /* Posición de la flecha */
+  background-size: 10px; /* Tamaño de la flecha */
+  
+  /* 4. Agrega espacio para que el texto no se pise con la flecha */
+  padding-right: 40px; 
+}
+
+/* 5. Estilo para el "Seleccioná..." (placeholder) */
+.field select option[value=""]:first-child {
+    color: #9aa3af; /* Gris de placeholder */
+}
+
+/* 6. Estilo de foco (igual a tus inputs) */
+.field select:focus {
+  outline: 0;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--brand); /* Tu color de marca */
+}
+
+
+/* =========================
+   ESTILOS BOTÓN BORRAR ITEM
+   ========================= */
+
+/* Hacemos que la lista sea flex para alinear el botón */
+.promo-cart-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0; /* Un poco más de espacio vertical */
+  
+  /* Esto es por si el nombre del producto es muy largo */
+  flex-wrap: wrap; 
+  gap: 8px;
+}
+
+.promo-cart-list li span {
+  /* Contenedor para el texto */
+  flex: 1 1 auto;
+}
+
+.btn-delete-item {
+  background: #fff0f0; /* Un rojo muy suave */
+  color: #c81e1e; /* Rojo oscuro */
+  border: 1px solid #f9c5c5;
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+.btn-delete-item:hover {
+  background: #f9c5c5;
+  color: #7f1d1d;
+}

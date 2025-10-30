@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promociones — Aether</title>
+  <meta name="description" content="Calculá tu ahorro con nuestras promociones vigentes en velas, aceites y difusores." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="Aether - Inicio">
+        <img
+          class="logo-img"
+          src="assets/logo-aether.png"
+          alt="Aether — Aromas & Bienestar"
+          decoding="async"
+        />
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Inicio</a></li>
+          <li><a class="nav__link" href="productos.html">Productos</a></li>
+          <li><a class="nav__link" href="promociones.html" aria-current="page">Promociones</a></li>
+          <li><a class="nav__link" href="sobre.html">Sobre Nosotros</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        
+        <h1 class="page-title">Calculá tu Ahorro</h1>
+        <p class="muted-center">
+          Usá nuestras calculadoras para simular tu compra y ver cuánto ahorrás.
+        </p>
+
+        <div class="promo-grid">
+
+            <article class="promo-box">
+                <h3 class="h2">60% OFF en la 2da Unidad</h3>
+                <p class="muted">Añadí productos a esta promo. Por cada 2 unidades iguales, la segunda tiene un 60% de descuento.</p>
+                
+                <fieldset class="form-grid">
+                    <div class="field">
+                    <label for="promo1-producto">Elegí un producto</label>
+                    <select id="promo1-producto">
+                        <option value="">Seleccioná...</option>
+                    </select>
+                    </div>
+                    <div class="field">
+                    <label for="promo1-cantidad">Cantidad</label>
+                    <input type="number" id="promo1-cantidad" placeholder="2" min="1" value="2">
+                    </div>
+                </fieldset>
+
+                <div class="promo-actions">
+                    <button class="btn" id="btn-promo1-agregar">Añadir Producto</button>
+                </div>
+                
+                <div class="promo-cart-list" id="cart-list-promo1">
+                    <h4>Productos en esta promo:</h4>
+                    <ul>
+                    <li>Aún no hay productos.</li>
+                    </ul>
+                </div>
+
+                <div class="promo-actions">
+                    <button class="btn" id="btn-promo1-calcular">Calcular Total</button>
+                    <button class="btn btn--secondary" id="btn-promo1-limpiar">Limpiar</button>
+                </div>
+                
+                <div class="promo-results" id="resultado-promo1" aria-live="polite">
+                    </div>
+            </article>
+
+            <article class="promo-box">
+                <h3 class="h2">3x2 en Seleccionados</h3>
+                <p class="muted">Añadí productos a esta promo. Por cada 3 unidades iguales, solo pagás 2 (la 3ra es gratis).</p>
+                
+                <fieldset class="form-grid">
+                    <div class="field">
+                    <label for="promo2-producto">Elegí un producto</label>
+                    <select id="promo2-producto">
+                        <option value="">Seleccioná...</option>
+                    </select>
+                    </div>
+                    <div class="field">
+                    <label for="promo2-cantidad">Cantidad</label>
+                    <input type="number" id="promo2-cantidad" placeholder="3" min="1" value="3">
+                    </div>
+                </fieldset>
+
+                <div class="promo-actions">
+                    <button class="btn" id="btn-promo2-agregar">Añadir Producto</button>
+                </div>
+                
+                <div class="promo-cart-list" id="cart-list-promo2">
+                    <h4>Productos en esta promo:</h4>
+                    <ul>
+                    <li>Aún no hay productos.</li>
+                    </ul>
+                </div>
+
+                <div class="promo-actions">
+                    <button class="btn" id="btn-promo2-calcular">Calcular Total</button>
+                    <button class="btn btn--secondary" id="btn-promo2-limpiar">Limpiar</button>
+                </div>
+                
+                <div class="promo-results" id="resultado-promo2" aria-live="polite">
+                    </div>
+            </article>
+
+            <article class="promo-box">
+                <h3 class="h2">10% OFF en tu compra</h3>
+                <p class="muted">Superando los $30.000 en el total de tu carrito, tenés un 10% de descuento.</p>
+                
+                <fieldset class="form-grid">
+                    <div class="field">
+                    <label for="promo3-producto">Elegí un producto</label>
+                    <select id="promo3-producto">
+                        <option value="">Seleccioná...</option>
+                    </select>
+                    </div>
+                    <div class="field">
+                    <label for="promo3-cantidad">Cantidad</label>
+                    <input type="number" id="promo3-cantidad" placeholder="1" min="1" value="1">
+                    </div>
+                </fieldset>
+
+                <div class="promo-actions">
+                    <button class="btn" id="btn-promo3-agregar">Añadir Producto</button>
+                </div>
+                
+                <div class="promo-cart-list" id="cart-list-promo3">
+                    <h4>Productos en esta promo:</h4>
+                    <ul>
+                    <li>Aún no hay productos.</li>
+                    </ul>
+                </div>
+
+                <div class="promo-actions">
+                    <button class="btn" id="btn-promo3-calcular">Calcular Total</button>
+                    <button class="btn btn--secondary" id="btn-promo3-limpiar">Limpiar</button>
+                </div>
+                
+                <div class="promo-results" id="resultado-promo3" aria-live="polite">
+                    </div>
+            </article>
+
+        <div class="promo-grid">
+
+          <article class="promo-box">
+            <h3 class="h2">20% OFF con Mercado Pago</h3>
+            <p class="muted">Simulá tu carrito y mirá cuánto ahorrás pagando con Mercado Pago.</p>
+            
+            <fieldset class="form-grid">
+              <div class="field">
+                <label for="promo4-producto">Elegí un producto</label>
+                <select id="promo4-producto">
+                  <option value="">Seleccioná...</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="promo4-cantidad">Cantidad</label>
+                <input type="number" id="promo4-cantidad" placeholder="1" min="1" value="1">
+              </div>
+            </fieldset>
+
+            <div class="promo-actions">
+              <button class="btn" id="btn-promo4-agregar">Añadir Producto</button>
+            </div>
+            
+            <div class="promo-cart-list" id="cart-list-promo4">
+              <h4>Productos en esta promo:</h4>
+              <ul>
+                <li>Aún no hay productos.</li>
+              </ul>
+            </div>
+
+            <div class="promo-actions">
+              <button class="btn" id="btn-promo4-calcular">Calcular Total</button>
+              <button class="btn btn--secondary" id="btn-promo4-limpiar">Limpiar</button>
+            </div>
+            
+            <div class="promo-results" id="resultado-promo4" aria-live="polite">
+              </div>
+          </article>
+        </div>
+
+        </div> </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 Aether — Aromas & Bienestar</p>
+      <nav aria-label="Enlaces legales y redes">
+        <ul class="footer__links">
+          <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <a href="#top" class="btn back-to-top" aria-label="Volver arriba">↑</a>
+
+  <script src="promociones.js"></script>
+</body>
+</html>
