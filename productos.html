@@ -7,13 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
+<script src="menu.js" defer></script>
 <body id="top">
   <header class="topbar">
     <div class="container topbar__inner">
       <a class="brand" href="index.html" aria-label="Aether - Inicio">
         <img class="logo-img" src="assets/logo-aether.png" alt="Aether — Aromas & Bienestar" decoding="async" />
       </a>
-      <nav class="nav" aria-label="Navegación principal">
+      <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="nav-menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+      </button>
+      <nav class="nav" id="nav-menu" aria-label="Navegación principal">
         <ul class="nav__list">
           <li><a class="nav__link" href="index.html">Inicio</a></li>
           <li><a class="nav__link" href="productos.html" aria-current="page">Productos</a></li>
@@ -34,150 +47,609 @@
       <!-- VELAS -->
       <section class="category" id="velas">
         <h2 class="h2">Velas aromáticas</h2>
-        <div class="cards">
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/vela-cacao.png" alt="Vela Cacao Divino en frasco de vidrio" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Cacao Divino</h3>
-              <p class="card__subtitle">Cacao amargo + vainilla. Cera de soja, mecha de algodón.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$12.000</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+        <div class="carousel-wrapper">
+        
+          <button class="carousel-btn btn-prev" aria-label="Anterior">‹</button>
+          <div class="cards">
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-cacao.png" alt="Vela Cacao Divino en frasco de vidrio" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Cacao Divino</h3>
+                <p class="card__subtitle">Cacao amargo + vainilla. Cera de soja, mecha de algodón.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$12.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
 
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/vela-citrus.png" alt="Vela Brisa de Citrus con rodajas de limón" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Brisa de Citrus</h3>
-              <p class="card__subtitle">Naranja, pomelo y limón. Fresca y energizante.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$15.000</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-citrus.png" alt="Vela Brisa de Citrus con rodajas de limón" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Brisa de Citrus</h3>
+                <p class="card__subtitle">Naranja, pomelo y limón. Fresca y energizante.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$15.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
 
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/vela-vainilla.png" alt="Vela Nébula Vainilla encendida" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Nébula Vainilla</h3>
-              <p class="card__subtitle">Vainilla cremosa + almizcle suave. Ideal para relax.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$12.000</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-vainilla.png" alt="Vela Nébula Vainilla encendida" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Nébula Vainilla</h3>
+                <p class="card__subtitle">Vainilla cremosa + almizcle suave. Ideal para relax.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$12.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-jardin.png" alt="Vela Jardín Secreto (Floral)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Jardín Secreto (Floral)</h3>
+                <p class="card__subtitle">Aroma a peonías y rosas frescas. Un paseo primaveral.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$13.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-palo-santo.png" alt="Vela Palo Santo Paz" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Palo Santo Paz</h3>
+                <p class="card__subtitle">Madera sagrada para limpieza y calma. Notas de pino y menta.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-cafe-matutino.png" alt="Vela Café Matutino" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Café Matutino</h3>
+                <p class="card__subtitle">Aroma a café recién hecho con un toque de avellana. Energizante y reconfortante.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$13.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-sandalo.png" alt="Vela Sándalo y Coco" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Sándalo y Coco</h3>
+                <p class="card__subtitle">Aroma cálido de sándalo con un toque dulce de coco. Cálido, cremoso y exótico. Un escape tropical.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$15.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-eucalipto.png" alt="Vela Eucalipto Fresco" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Eucalipto Fresco</h3>
+                <p class="card__subtitle">Aroma revitalizante de eucalipto. Ideal para despejar la mente y respirar profundo.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$13.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-higo-miel.png" alt="Vela Higo y Miel" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Higo y Miel</h3>
+                <p class="card__subtitle">Higo dulce + miel suave. Un aroma único y sofisticado.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/vela-marino.png" alt="Vela Océano Profundo (Marino)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Océano Profundo (Marino)</h3>
+                <p class="card__subtitle">Notas saladas y acuáticas. Frescura limpia y pura.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-btn btn-next" aria-label="Siguiente">›</button> 
         </div>
       </section>
 
       <!-- JABONES -->
       <section class="category" id="jabones">
         <h2 class="h2">Jabones artesanales</h2>
-        <div class="cards">
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/jabon-lavanda.png" alt="Jabón de lavanda con flores secas" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Lavanda Serena</h3>
-              <p class="card__subtitle">Glicerina vegetal + aceite esencial de lavanda.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$6.500</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+        <div class="carousel-wrapper">
+        
+          <button class="carousel-btn btn-prev" aria-label="Anterior">‹</button>
+          <div class="cards">
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-lavanda.png" alt="Jabón de lavanda con flores secas" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Lavanda Serena</h3>
+                <p class="card__subtitle">Glicerina vegetal + aceite esencial de lavanda.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$6.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
 
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/jabon-citricos.png" alt="Jabón cítrico con rodajas de naranja" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Citrus Glow</h3>
-              <p class="card__subtitle">Naranja y pomelo. Limpieza fresca y luminosa.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$6.900</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-citricos.png" alt="Jabón cítrico con rodajas de naranja" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Citrus Glow</h3>
+                <p class="card__subtitle">Naranja y pomelo. Limpieza fresca y luminosa.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$6.900</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-carbon.png" alt="Jabón Carbón Activado Detox" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Carbón Activado Detox</h3>
+                <p class="card__subtitle">Carbón activado + arcilla. Limpieza profunda y detoxificante.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$7.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-avena.png" alt="Jabón Avena y Miel (Exfol.)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Avena y Miel (Exfol.)</h3>
+                <p class="card__subtitle">Exfoliación suave y natural. Nutre y calma la piel.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$7.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-rosa-mosqueta.png" alt="Jabón Rosa Mosqueta" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Rosa Mosqueta</h3>
+                <p class="card__subtitle">Hidratación profunda y regeneración celular. Aroma suave.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$8.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-te-verde.png" alt="Jabón Té Verde y Jengibre" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Té Verde y Jengibre</h3>
+                <p class="card__subtitle">Antioxidante y energizante. Aroma fresco y herbal.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$7.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-verbena.png" alt="Jabón Verbena Exfoliante" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Verbena Exfoliante</h3>
+                <p class="card__subtitle">Con semillas de amapola para una exfoliación media. Aroma cítrico.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$7.900</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-calendula-suave.png" alt="Jabón Caléndula Suave (Bebés) " />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Caléndula Suave (Bebés)</h3>
+                <p class="card__subtitle">Sin perfume, hipoalergénico. El más suave para piel sensible.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$7.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-almendras.png" alt="Jabón Almendra Cremosa" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Almendra Cremosa</h3>
+                <p class="card__subtitle">Con aceite de almendras dulces. Hidratación profunda.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$7.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/jabon-lemongrass.png" alt="Jabón Lemongrass Energizante" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Lemongrass Energizante</h3>
+                <p class="card__subtitle">Aroma cítrico y refrescante. Ideal para comenzar el día.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$6.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+
+          </div>
+          <button class="carousel-btn btn-next" aria-label="Siguiente">›</button> 
         </div>
       </section>
 
       <!--  ACEITES & ESENCIAS -->
       <section class="category" id="aceites">
         <h2 class="h2">Aceites & Esencias</h2>
-        <div class="cards">
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/aceite-menta.png" alt="Botella de aceite esencial de menta" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Menta Boreal</h3>
-              <p class="card__subtitle">Refrescante y despejante. Ideal para difusor.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$9.800</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+        <div class="carousel-wrapper">
+        
+          <button class="carousel-btn btn-prev" aria-label="Anterior">‹</button>
+          <div class="cards">
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/aceite-menta.png" alt="Botella de aceite esencial de menta" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Menta Boreal</h3>
+                <p class="card__subtitle">Refrescante y despejante. Ideal para difusor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$9.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
 
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/aceite-naranja.png" alt="Aceite esencial de naranja sobre tabla" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Naranja Dulce</h3>
-              <p class="card__subtitle">Notas solares y optimistas. Uso en masajes o difusor.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$10.200</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/aceite-naranja.png" alt="Aceite esencial de naranja sobre tabla" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Naranja Dulce</h3>
+                <p class="card__subtitle">Notas solares y optimistas. Uso en masajes o difusor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$10.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/esencia-lavanda.png" alt="Esencia de Lavanda" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Esencia de Lavanda</h3>
+                <p class="card__subtitle">Pura esencia para hornillos o humidificadores. Relax.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$10.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/esencia-sandalo.png" alt="Esencia de Sándalo" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Esencia de Sándalo</h3>
+                <p class="card__subtitle">Notas cálidas, dulces y amaderadas. Ideal para meditación.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$11.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/aceite-eucalipto.png" alt="Aceite de Eucalipto" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Eucalipto</h3>
+                <p class="card__subtitle">Refrescante y purificante. Ideal para vapor o alivio respiratorio.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$9.900</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/aceite-bergamota.png" alt="Aceite de Bergamota" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Bergamota</h3>
+                <p class="card__subtitle">Cítrica y floral. Eleva el estado de ánimo. Ideal para difusor o masaje.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$10.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/esencia-menta-romero.png" alt="Esencia 'Foco Total' (Menta, Romero)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Esencia 'Foco Total' (Menta, Romero)</h3>
+                <p class="card__subtitle">Blend de Menta y Romero. Ideal para estudiar o trabajar.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$13.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/esencia-sueños.png" alt="Esencia 'Dulces Sueños' (Lavanda, Manzanilla)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Esencia 'Dulces Sueños' (Lavanda, Manzanilla)</h3>
+                <p class="card__subtitle">Blend de Lavanda y Manzanilla. Relax antes de dormir.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$13.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/esencia-jazmin.png" alt="Esencia de Jazmín" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Esencia de Jazmín</h3>
+                <p class="card__subtitle">Aroma floral intenso, dulce y exótico. Afrodisíaco.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$12.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/aceite-arbol.png" alt="Aceite de Árbol de Té (Tea Tree)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Aceite de Árbol de Té (Tea Tree)</h3>
+                <p class="card__subtitle">Aroma fresco y herbáceo. Antiséptico y purificante.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$10.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+
+          </div>
+          <button class="carousel-btn btn-next" aria-label="Siguiente">›</button> 
         </div>
       </section>
 
       <!--  DIFUSORES -->
       <section class="category" id="difusores">
         <h2 class="h2">Difusores de ambientes</h2>
-        <div class="cards">
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/difusor-bosque.png" alt="Difusor de varillas de bambú" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Bosque Claro</h3>
-              <p class="card__subtitle">Maderas suaves y musgo. Larga duración.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$14.500</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+        <div class="carousel-wrapper">
+        
+          <button class="carousel-btn btn-prev" aria-label="Anterior">‹</button>
+          <div class="cards">
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/difusor-bosque.png" alt="Difusor de varillas de bambú" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Bosque Claro</h3>
+                <p class="card__subtitle">Maderas suaves y musgo. Larga duración.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
 
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/difusor-alba.png" alt="Difusor de vidrio ámbar" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Alba de Té</h3>
-              <p class="card__subtitle">Té blanco + jazmín. Perfuma sin saturar.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$15.200</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/difusor-alba.png" alt="Difusor de vidrio ámbar" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Alba de Té</h3>
+                <p class="card__subtitle">Té blanco + jazmín. Perfuma sin saturar.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$15.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/difusor-brisa-marina.png" alt="Difusor Brisa Marina (Varillas)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Brisa Marina</h3>
+                <p class="card__subtitle">Aroma fresco y acuático. Ideal para ambientes relajantes.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/difusor-limon.png" alt="Difusor Verbena y Limón (Varillas)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Verbena y Limón (Varillas)</h3>
+                <p class="card__subtitle">Cítrico y fresco. Ideal para energizar el ambiente.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/difusor-vainilla.png" alt="Difusor Vainilla y Caramelo (Varillas)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Vainilla y Caramelo (Varillas)</h3>
+                <p class="card__subtitle">Dulce y envolvente. Ideal para momentos acogedores.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$15.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/difusor-flores.png" alt="Difusor Flores Blancas (Varillas)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Flores Blancas (Varillas)</h3>
+                <p class="card__subtitle">Bouquet de jazmín, nardo y azahar. Elegante.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$14.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/repuesto-citrus.png" alt="Repuesto Difusor Citrus" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Repuesto Difusor Citrus</h3>
+                <p class="card__subtitle">250ml de pura fragancia cítrica para recargar tu difusor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$9.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/repuesto-floral.png" alt="Repuesto Difusor Floral" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Repuesto Difusor Floral</h3>
+                <p class="card__subtitle">250ml de pura fragancia floral para recargar tu difusor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$9.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/repuesto-vainilla.png" alt="Repuesto Difusor Vainilla" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Repuesto Difusor Vainilla</h3>
+                <p class="card__subtitle">250ml de pura fragancia vainilla para recargar tu difusor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$9.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/varillas.png" alt="Set Varillas de Bambú (x20)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Set Varillas de Bambú (x20)</h3>
+                <p class="card__subtitle">Varillas de bambú para difusores de aroma.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$2.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+          </div>
+          <button class="carousel-btn btn-next" aria-label="Siguiente">›</button> 
         </div>
       </section>
 
@@ -186,38 +658,166 @@
            ========================= -->
       <section class="category" id="inciensos">
         <h2 class="h2">Inciensos</h2>
-        <div class="cards">
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/incienso-sandalo.png" alt="Incienso sándalo encendido" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Sándalo Místico</h3>
-              <p class="card__subtitle">Calmo y profundo. Ideal para meditación.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$3.200</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+        <div class="carousel-wrapper">
+        
+        <button class="carousel-btn btn-prev" aria-label="Anterior">‹</button>
+          <div class="cards">
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-sandalo.png" alt="Incienso sándalo encendido" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Sándalo Místico</h3>
+                <p class="card__subtitle">Calmo y profundo. Ideal para meditación.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
 
-          <article class="card">
-            <figure class="card__media">
-              <img src="assets/incienso-lavanda.png" alt="Incienso de lavanda" />
-            </figure>
-            <div class="card__body">
-              <h3 class="card__title">Lavanda Zen</h3>
-              <p class="card__subtitle">Aroma floral que invita al descanso.</p>
-            </div>
-            <div class="card__footer">
-              <span class="price">$3.500</span>
-              <a class="btn btn--sm" href="#top">Añadir</a>
-            </div>
-          </article>
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-lavanda.png" alt="Incienso de lavanda" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Lavanda Zen</h3>
+                <p class="card__subtitle">Aroma floral que invita al descanso.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-palo-santo.png" alt="Incienso de palo santo" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Palo Santo (Varillas)</h3>
+                <p class="card__subtitle">Varillas de incienso con aroma a madera sagrada.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$4.000</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-copal.png" alt="Incienso Copal Sagrado" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Copal Sagrado</h3>
+                <p class="card__subtitle">Resina de copal para purificación y limpieza energética. Aroma dulce y terroso que eleva el espíritu.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-mirra.png" alt="Incienso Mirra Pura" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Mirra Pura</h3>
+                <p class="card__subtitle">Aroma cálido y balsámico que favorece la meditación.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.800</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-canela-naranja.png" alt="Incienso Canela y Naranja" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Canela y Naranja</h3>
+                <p class="card__subtitle">Aroma cálido y especiado que estimula los sentidos. Ideal para crear un ambiente acogedor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.600</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-romero.png" alt="Incienso Romero (Limpieza)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Romero (Limpieza)</h3>
+                <p class="card__subtitle">Aroma herbal que purifica y renueva el ambiente.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-rosas.png" alt="Incienso de Rosas" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Rosas</h3>
+                <p class="card__subtitle">Clásico aroma floral. Para armonía y amor.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$3.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/incienso-mix.png" alt="Incienso Mix Aromatika (Surtido)" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Incienso Mix Aromatika (Surtido)</h3>
+                <p class="card__subtitle">Caja con 7 fragancias surtidas en versión mini. Ideal para todos los gustos.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$4.200</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <figure class="card__media">
+                <img src="assets/portaincienso.png" alt="Porta-incienso de Cerámica" />
+              </figure>
+              <div class="card__body">
+                <h3 class="card__title">Porta-incienso de Cerámica</h3>
+                <p class="card__subtitle">Diseño minimalista y funcional para disfrutar de tus inciensos. Hecho a mano.</p>
+              </div>
+              <div class="card__footer">
+                <span class="price">$4.500</span>
+                <a class="btn btn--sm" href="#top">Añadir</a>
+              </div>
+            </article>
+
+
+          </div>
+          <button class="carousel-btn btn-next" aria-label="Siguiente">›</button> 
         </div>
       </section>
 
     </div>
+
+    <section class="about-call">
+        <h2 class="h2">Descubrí nuestras promociones</h2>
+        <p>
+            Aprovecha las mejores ofertas y llevate todos nuestros productos.
+            Para que tu experiencia Aether sea aún más especial.
+        </p>
+        <a href="promociones.html" class="btn-yellow">Conocé Más Sobre Nuestras Promociones</a>
+    </section>
   </main>
 
   <footer class="footer">
@@ -230,5 +830,6 @@
   </footer>
 
   <a href="#top" class="btn back-to-top" aria-label="Volver arriba">↑</a>
+  <script src="carousel.js"></script>
 </body>
 </html>

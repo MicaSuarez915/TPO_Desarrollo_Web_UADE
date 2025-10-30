@@ -186,7 +186,7 @@ img{ max-width:100%; height:auto; display:block; }
 }
 .card:hover{ transform: translateY(-3px); border-color: rgba(0,0,0,.06); }
 
-.card__media{ aspect-ratio: 4/3; overflow:hidden; background:var(--card); }
+.card__media{ aspect-ratio: 4/3; overflow:hidden; background:var(--card);  }
 .card__media img{ width:100%; height:100%; object-fit:cover; }
 .card__media--placeholder{ background:var(--muted); }
 
@@ -336,7 +336,40 @@ img{ max-width:100%; height:auto; display:block; }
 
 
 .category + .category { margin-top: 28px; }
-.category .cards { margin-top: 12px; }
+
+.category .cards {
+      /* 1. Convertimos la grilla en un flexbox horizontal */
+      display: flex;
+      overflow-x: auto; /* Habilita el scroll horizontal */
+      margin-top: 12px;
+      /* 2. Ocultamos la barra de scroll (estética) */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE y Edge */
+    }
+    .category .cards::-webkit-scrollbar {
+      display: none; /* Chrome, Safari y Opera */
+    }
+
+    .category .cards {
+      /* 3. Agregamos 'scroll snapping' para un efecto profesional */
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1.5rem; /* Espacio para que la sombra no se corte */
+    }
+
+    .category .cards .card {
+      /* 4. Damos un ancho fijo a las tarjetas */
+      flex: 0 0 320px; /* No se achican, no crecen, base de 320px */
+      
+      /* 5. Propiedad para el 'snapping' */
+      scroll-snap-align: start;
+    }
+    
+    /* Pequeño ajuste en pantallas muy chicas */
+    @media (max-width: 400px) {
+      .category .cards .card {
+        flex-basis: 280px; /* Más angostas en celulares */
+      }
+    }
 
 /* Accesibilidad */
 .sr-only{
@@ -671,3 +704,150 @@ textarea{ resize: vertical; min-height: 160px; }
   font-weight: 700;
   display: block; /* Para que baje de línea */
 }
+
+
+/* =========================
+   ESTILOS CARRUSEL CON FLECHAS
+   ========================= */
+
+.carousel-wrapper {
+  /* Clave para que los botones se posicionen 
+     en relación a este contenedor */
+  position: relative;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  /* Centra verticalmente y ajusta la sombra */
+  transform: translateY(-50%); 
+  
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50%; /* Redondos */
+  width: 44px;  /* Más grandes para un clic fácil */
+  height: 44px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+  z-index: 10; /* Se asegura que estén por encima */
+  
+  /* Centra el ícono de flecha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4px; /* Ajuste visual para centrar la flecha */
+}
+
+.carousel-btn:hover {
+  background: var(--brand); /* Tu color amarillo al pasar el mouse */
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Posición de cada botón */
+.btn-prev {
+  left: -50px; /* Ligeramente por fuera del carrusel */
+}
+.btn-next {
+  right: -50px; /* Ligeramente por fuera del carrusel */
+}
+
+/* Estado "deshabilitado" que usará el JS */
+.carousel-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  display: none; /* Los ocultamos si no se pueden usar */
+}
+
+/* Ajuste para celulares (los botones quedan adentro) */
+@media (max-width: 600px) {
+  .btn-prev {
+    left: 1px;
+  }
+  .btn-next {
+    right: 1px;
+  }
+  .category .cards {
+    /* 1. Creamos espacio en los costados para las flechas */
+    padding-left: 50px; 
+    padding-right: 50px;
+
+  }
+
+}
+
+/* === HAMBURGUESA === */
+.menu-toggle {
+  display: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  color: var(--text);
+  transition: transform 0.2s ease;
+}
+
+/* Rotación sutil cuando el menú se abre */
+.menu-toggle[aria-expanded="true"] .menu-icon {
+  transform: rotate(90deg);
+}
+
+.menu-toggle__bar{
+  width:20px; height:2px; background:var(--text);
+  display:block; transition:transform .2s ease, opacity .2s ease;
+}
+
+/* Estado "abierto" -> convierte ☰ en ✕ */
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2){
+  opacity:0;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* === MENÚ EN MÓVIL === */
+@media (max-width: 900px){
+  .menu-toggle{ display:inline-flex; }
+
+  /* por defecto oculto */
+  .nav{
+    position:absolute;
+    left:0; right:0; top:100%;
+    background: var(--surface);
+    border-bottom:1px solid var(--dark);
+    display:none;
+    padding: 8px 12px 12px;
+  }
+  /* visible cuando se abre */
+  .nav.is-open{ display:block; }
+
+  .nav__list{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 6px;
+  }
+  .nav__link{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:.75rem 1rem;
+    display:block; text-align:center;
+  }
+}
+
+/* Opcional: evita scroll del body cuando el menú está abierto */
+body.menu-open{ overflow:hidden; }

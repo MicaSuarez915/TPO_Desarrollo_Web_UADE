@@ -1,9 +1,8 @@
-/* Espera a que todo el HTML esté cargado antes de ejecutar el script */
 document.addEventListener('DOMContentLoaded', function() {
 
   /* --- BASE DE DATOS DE PRODUCTOS --- */
   const productos = [
-    // --- Velas (10 productos) ---
+    // --- Velas ---
     { id: 1, nombre: "Vela Cacao Divino", precio: 12000, tipo: 'vela' },
     { id: 2, nombre: "Vela Brisa de Citrus", precio: 15000, tipo: 'vela' },
     { id: 3, nombre: "Vela Nébula Vainilla", precio: 12000, tipo: 'vela' },
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: 9, nombre: "Vela Higo y Miel", precio: 14200, tipo: 'vela' },
     { id: 10, nombre: "Vela Océano Profundo (Marino)", precio: 14000, tipo: 'vela' },
 
-    // --- Jabones (10 productos) ---
+    // --- Jabones ---
     { id: 11, nombre: "Jabon Lavanda Serena", precio: 6500, tipo: 'jabon' },
     { id: 12, nombre: "Jabon Citrus Glow", precio: 6900, tipo: 'jabon' },
     { id: 13, nombre: "Jabon Carbón Activado Detox", precio: 7500, tipo: 'jabon' },
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: 19, nombre: "Jabon Almendra Cremosa", precio: 7000, tipo: 'jabon' },
     { id: 20, nombre: "Jabon Lemongrass Energizante", precio: 6800, tipo: 'jabon' },
 
-    // --- Aceites & Esencias (10 productos) ---
+    // --- Aceites & Esencias  ---
     { id: 21, nombre: "Aceite de Menta Boreal", precio: 9800, tipo: 'aceite' },
     { id: 22, nombre: "Aceite de Naranja Dulce", precio: 10200, tipo: 'aceite' },
     { id: 23, nombre: "Esencia de Lavanda", precio: 10500, tipo: 'esencia' },
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: 29, nombre: "Esencia de Jazmín", precio: 12000, tipo: 'esencia' },
     { id: 30, nombre: "Aceite de Árbol de Té (Tea Tree)", precio: 10500, tipo: 'aceite' },
 
-    // --- Difusores (10 productos) ---
+    // --- Difusores ---
     { id: 31, nombre: "Difusor 'Bosque Claro' (Varillas)", precio: 14500, tipo: 'difusor' },
     { id: 32, nombre: "Difusor 'Alba de Té' (Varillas)", precio: 15200, tipo: 'difusor' },
     { id: 33, nombre: "Brisa Marina (Varillas)", precio: 14800, tipo: 'difusor' },
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: 39, nombre: "Repuesto Difusor Vainilla", precio: 9500, tipo: 'difusor' },
     { id: 40, nombre: "Set Varillas de Bambú (x20)", precio: 2500, tipo: 'difusor' },
 
-    // --- Inciensos (10 productos) ---
+    // --- Inciensos  ---
     { id: 41, nombre: "Incienso Sándalo Místico", precio: 3200, tipo: 'incienso' },
     { id: 42, nombre: "Incienso Lavanda Zen", precio: 3500, tipo: 'incienso' },
     { id: 43, nombre: "Incienso Palo Santo (Varillas)", precio: 4000, tipo: 'incienso' },
@@ -78,12 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnAgregarTotal = document.getElementById('btn-total-agregar');
   const btnCalcularTotal = document.getElementById('btn-total-calcular');
   const btnLimpiarTotal = document.getElementById('btn-total-limpiar');
-  const listaCarritoTotal = document.getElementById('cart-list-total').querySelector('ul');
+  const listaCarritoTotal = document.getElementById('cart-list-total')?.querySelector('ul');
   const checkMP = document.getElementById('check-mp');
   const resultadoElTotal = document.getElementById('resultado-total');
 
   /* --- Selectores Promos Individuales (1-5) --- */
-  // ... (No es necesario mostrar todo esto, asumimos que existen)
   const selectPromo1 = document.getElementById('promo1-producto');
   const cantidadPromo1 = document.getElementById('promo1-cantidad');
   const btnAgregarPromo1 = document.getElementById('btn-promo1-agregar');
@@ -126,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function mostrarResultado(elementoResultado, subtotal, descuento, total, promoNombre = null) {
+    if (!elementoResultado) return; 
     elementoResultado.innerHTML = '';
     const subtotalF = formatCurrency(subtotal);
     const descuentoF = formatCurrency(descuento);
@@ -134,16 +133,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let html = `<p>Total sin descuento: <strong>${subtotalF}</strong></p>`;
     
     if (promoNombre) {
-      // Modificado para manejar múltiples promos
-      const promosHtml = promoNombre.split(' + ').map(p => `<strong>${p}</strong>`).join(' + ');
-      html += `<p class="promo-aplicada">Promos aplicadas: ${promosHtml}</p>`;
+      if (promoNombre === "Sin promo base") {
+         html += `<p>No se aplicó ninguna promoción base.</p>`;
+      } else {
+        const promosHtml = promoNombre.split(' + ').map(p => `<strong>${p}</strong>`).join(' + ');
+        html += `<p class="promo-aplicada">Promos aplicadas: ${promosHtml}</p>`;
+      }
     }
 
     if (descuento > 0) {
       html += `<p class="ahorro">Ahorro (descuento): <strong>${descuentoF}</strong></p><hr><p class="total-final">Total a pagar: <strong>${totalF}</strong></p>`;
     } else {
       let msg = 'Esta compra no aplica para el descuento.';
-      if (elementoResultado.id === 'resultado-promo5') {
+      if (elementoResultado && elementoResultado.id === 'resultado-promo5') {
         msg = 'Aún no aplica el descuento. (Recordá agregar al menos 1 Vela y 1 Jabón)';
       }
       html += `<p>${msg}</p><hr><p class="total-final">Total a pagar: <strong>${totalF}</strong></p>`;
@@ -159,12 +161,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function mostrarError(elementoResultado, mensaje = 'Por favor, ingresá valores válidos.') {
-    elementoResultado.innerHTML = `<p class="error">${mensaje}</p>`;
+    if (elementoResultado) {
+      elementoResultado.innerHTML = `<p class="error">${mensaje}</p>`;
+    }
   }
 
   /* --- INICIALIZACIÓN: Cargar productos en los dropdowns --- */
   function cargarProductosEnSelect(selectElement) {
     if (selectElement) {
+      while (selectElement.options.length > 1) {
+        selectElement.remove(1);
+      }
       productos.forEach(producto => {
         const option = document.createElement('option');
         option.value = producto.id;
@@ -174,21 +181,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Cargar todos los selects
   [selectTotal, selectPromo1, selectPromo2, selectPromo3, selectPromo4, selectPromo5].forEach(cargarProductosEnSelect);
 
   
-  /* =======================================================
-     FUNCIONES DE CÁLCULO DE PROMOCIONES
-     ======================================================= */
   
-  // PROMO 1: 60% OFF en 2da (CAMBIADO A 60%)
+  // PROMO 1: 60% OFF en 2da
   function calcularDescuentoPromo1(carrito) {
     let descuentoTotal = 0;
     carrito.forEach(item => {
       const { producto, cantidad } = item;
       const cantidadConDescuento = Math.floor(cantidad / 2);
-      // Aplicamos 60% (0.6) como en tu cálculo
       const descuentoDelItem = cantidadConDescuento * (producto.precio * 0.6); 
       descuentoTotal += descuentoDelItem;
     });
@@ -207,10 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
     return descuentoTotal;
   }
 
-  // PROMO 3: 10% OFF > $100.000 (NUEVA REGLA)
+  // PROMO 3: 10% OFF > $100.000
   function calcularDescuentoPromo3(subtotal) {
     let descuentoTotal = 0;
-    if (subtotal >= 100000) {
+    if (subtotal > 100000) {
       descuentoTotal = subtotal * 0.10;
     }
     return descuentoTotal;
@@ -249,11 +251,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  /* =======================================================
-     LÓGICA MÓDULO TOTAL (LÓGICA DE CÁLCULO MODIFICADA)
-     ======================================================= */
-  
+ 
   function actualizarVistaCarritoTotal() {
+    if (!listaCarritoTotal) return;
     listaCarritoTotal.innerHTML = '';
     if (carritoTotal.length === 0) {
       listaCarritoTotal.innerHTML = '<li>Aún no hay productos.</li>';
@@ -278,6 +278,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       const productoSeleccionado = productos.find(p => p.id === productoId);
+      if (!productoSeleccionado) {
+        mostrarError(resultadoElTotal, 'Error: Producto no encontrado.');
+        return;
+      }
       const itemExistente = carritoTotal.find(item => item.producto.id === productoId);
       if (itemExistente) {
         itemExistente.cantidad += cantidad;
@@ -291,6 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+
   if (btnCalcularTotal) {
     btnCalcularTotal.addEventListener('click', function() {
       if (carritoTotal.length === 0) {
@@ -303,63 +308,44 @@ document.addEventListener('DOMContentLoaded', function() {
         totalSinDescuento += item.producto.precio * item.cantidad;
       });
 
-      // 1. Definimos las promos
-      // (CUIDADO: Esto asume que un item puede estar en MÚLTIPLES promos a la vez)
       const promosBase = [
-        // Cambiamos el nombre para que coincida con tu 60%
         { nombre: "60% OFF en 2da Unidad", descuento: calcularDescuentoPromo1(carritoTotal) },
         { nombre: "3x2 en Seleccionados", descuento: calcularDescuentoPromo2(carritoTotal) },
-        { nombre: "10% OFF (Compra mayor a $100.000)", descuento: calcularDescuentoPromo3(totalSinDescuento) },
+        { nombre: "10% OFF (Compra > $100k)", descuento: calcularDescuentoPromo3(totalSinDescuento) },
         { nombre: "5% OFF Kit (Vela + Jabón)", descuento: calcularDescuentoPromo5(carritoTotal) }
       ];
-
-      // =================================================
-      // ¡AQUÍ ESTÁ EL CAMBIO DE LÓGICA!
-      // En lugar de buscar el MÁXIMO, ahora SUMAMOS.
-      // =================================================
       
-      // 2. SUMAMOS todas las promos base
-      let descuentoBaseTotal = 0;
-      let nombresPromos = [];
+      let mejorPromo = { nombre: "Sin promo base", descuento: 0 };
       
       for (const promo of promosBase) {
-        if (promo.descuento > 0) {
-          descuentoBaseTotal += promo.descuento;
-          nombresPromos.push(promo.nombre); // Guarda el nombre si aplica
+        if (promo.descuento > mejorPromo.descuento) {
+          mejorPromo = promo;
         }
       }
       
-      let nombrePromoFinal = "Sin promo base";
-      if (nombresPromos.length > 0) {
-        nombrePromoFinal = nombresPromos.join(" + ");
-      }
+      let descuentoBaseTotal = mejorPromo.descuento;
+      let nombrePromoFinal = mejorPromo.nombre;
       
       const precioConDescuentoBase = totalSinDescuento - descuentoBaseTotal;
-      
-      // 3. Verificamos el descuento de Mercado Pago
       let descuentoMP = 0;
-      let nombrePromoMP = "";
       
       if (checkMP.checked) {
         descuentoMP = precioConDescuentoBase * 0.20;
-        nombrePromoMP = " + 20% OFF Mercado Pago";
       }
 
-      // 4. Calculamos totales
       const descuentoTotal = descuentoBaseTotal + descuentoMP;
       const totalFinal = totalSinDescuento - descuentoTotal;
       
-      // Si MP se aplicó, lo sumamos al nombre
+      
       if (descuentoMP > 0) {
-        // Evita mostrar "Sin promo base + 20% OFF..."
-        if (nombresPromos.length === 0) {
+        
+        if (descuentoBaseTotal === 0) { 
           nombrePromoFinal = "20% OFF Mercado Pago";
         } else {
-          nombrePromoFinal += nombrePromoMP;
+          nombrePromoFinal += " + 20% OFF Mercado Pago";
         }
       }
 
-      // 5. Mostramos el resultado
       mostrarResultado(resultadoElTotal, totalSinDescuento, descuentoTotal, totalFinal, nombrePromoFinal);
     });
   }
@@ -369,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function() {
       carritoTotal = [];
       actualizarVistaCarritoTotal();
       resultadoElTotal.innerHTML = '';
-      checkMP.checked = false; // Resetea el checkbox
+      if(checkMP) checkMP.checked = false; 
     });
   }
   
@@ -379,16 +365,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const index = parseInt(event.target.dataset.index);
         carritoTotal.splice(index, 1);
         actualizarVistaCarritoTotal();
-        resultadoElTotal.innerHTML = ''; // Limpia al borrar
+        resultadoElTotal.innerHTML = ''; 
       }
     });
   }
 
 
-  /* =======================================================
-     LÓGICA PROMOS INDIVIDUALES (1-5)
-     (Este código es repetitivo pero necesario para las cajas de abajo)
-     ======================================================= */
   
   // --- Promo 1 ---
   function actualizarVistaCarritoPromo1() {
@@ -426,9 +408,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (carritoPromo1.length === 0) { mostrarError(resultadoElPromo1, 'Agregá productos para calcular.'); return; }
       let totalSinDescuento = 0;
       carritoPromo1.forEach(item => { totalSinDescuento += item.producto.precio * item.cantidad; });
-      const descuentoTotal = calcularDescuentoPromo1(carritoPromo1); // Reutiliza la función
+      const descuentoTotal = calcularDescuentoPromo1(carritoPromo1); 
       const totalFinal = totalSinDescuento - descuentoTotal;
-      mostrarResultado(resultadoElPromo1, totalSinDescuento, descuentoTotal, totalFinal, "60% OFF en 2da Unidad"); // Nombre cambiado a 60%
+      mostrarResultado(resultadoElPromo1, totalSinDescuento, descuentoTotal, totalFinal, "60% OFF en 2da Unidad"); 
     });
   }
   if (btnLimpiarPromo1) {
@@ -486,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (carritoPromo2.length === 0) { mostrarError(resultadoElPromo2, 'Agregá productos para calcular.'); return; }
       let totalSinDescuento = 0;
       carritoPromo2.forEach(item => { totalSinDescuento += item.producto.precio * item.cantidad; });
-      const descuentoTotal = calcularDescuentoPromo2(carritoPromo2); // Reutiliza la función
+      const descuentoTotal = calcularDescuentoPromo2(carritoPromo2); 
       const totalFinal = totalSinDescuento - descuentoTotal;
       mostrarResultado(resultadoElPromo2, totalSinDescuento, descuentoTotal, totalFinal, "3x2 en Seleccionados");
     });
@@ -545,9 +527,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (carritoPromo3.length === 0) { mostrarError(resultadoElPromo3, 'Agregá productos para calcular.'); return; }
       let totalSinDescuento = 0;
       carritoPromo3.forEach(item => { totalSinDescuento += item.producto.precio * item.cantidad; });
-      const descuentoTotal = calcularDescuentoPromo3(totalSinDescuento); // Reutiliza la función
+      const descuentoTotal = calcularDescuentoPromo3(totalSinDescuento); 
       const totalFinal = totalSinDescuento - descuentoTotal;
-      mostrarResultado(resultadoElPromo3, totalSinDescuento, descuentoTotal, totalFinal, "10% OFF (Compra mayor a $100.000)");
+      mostrarResultado(resultadoElPromo3, totalSinDescuento, descuentoTotal, totalFinal, "10% OFF (Compra > $100k)");
     });
   }
   if (btnLimpiarPromo3) {
@@ -604,7 +586,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (carritoPromo4.length === 0) { mostrarError(resultadoElPromo4, 'Agregá productos para calcular.'); return; }
       let totalSinDescuento = 0;
       carritoPromo4.forEach(item => { totalSinDescuento += item.producto.precio * item.cantidad; });
-      const descuentoTotal = totalSinDescuento * 0.20; // Cálculo simple de 20%
+      const descuentoTotal = totalSinDescuento * 0.20; 
       const totalFinal = totalSinDescuento - descuentoTotal;
       mostrarResultado(resultadoElPromo4, totalSinDescuento, descuentoTotal, totalFinal, "20% OFF con Mercado Pago");
     });
@@ -663,7 +645,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (carritoPromo5.length === 0) { mostrarError(resultadoElPromo5, 'Agregá productos para calcular.'); return; }
       let totalSinDescuento = 0;
       carritoPromo5.forEach(item => { totalSinDescuento += item.producto.precio * item.cantidad; });
-      const descuentoTotal = calcularDescuentoPromo5(carritoPromo5); // Reutiliza la función
+      const descuentoTotal = calcularDescuentoPromo5(carritoPromo5); 
       const totalFinal = totalSinDescuento - descuentoTotal;
       mostrarResultado(resultadoElPromo5, totalSinDescuento, descuentoTotal, totalFinal, "5% OFF Kit (Vela + Jabón)");
     });
